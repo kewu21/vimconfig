@@ -25,6 +25,7 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 " -----End Key Mapping-----
 
 " -----Misc-----
+set nocompatible
 set enc=utf-8
 set fencs=utf-8,gbk,latin1
 set hlsearch
@@ -62,6 +63,10 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " Pydoc Preview
 set completeopt=menuone,longest,preview
+
+" R configuration
+autocmd FileType r set fdm=indent
+au BufNewFile,BufRead *.R set ft=r
 
 " Latex-Suite
 " IMPORTANT: use helptags ~/.vim/bundle/latexsuite/doc/ to intial setup
