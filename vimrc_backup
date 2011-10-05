@@ -1,0 +1,89 @@
+" for the Pathgon to load correctly
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" -----Key Mapping-----
+" TaskList
+map <leader>tak <Plug>TaskList
+" Gundo Key 
+nnoremap <leader>g :GundoToggle<CR>
+" Control Window Movement
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+" Tab Remap
+map tn :tabnext<CR>
+map tp :tabprevious<CR>
+" Pydoc
+map <leader>pw :Pydoc <c-r>=expand("<cword>")<CR><CR>
+" Nerdtree
+map <leader>n :NERDTreeToggle<CR>
+" Taglist
+nnoremap <silent> <F8> :TlistToggle<CR>
+" -----End Key Mapping-----
+
+" -----Misc-----
+set enc=utf-8
+set fencs=utf-8,gbk,latin1
+set hlsearch
+set wildmenu
+" set statusline=%=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set statusline=%=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [%Y]\ [ASCII=\%03.3b]\ [%04l,%04v][%p%%]\ [L%L]
+set laststatus=2
+" syntax highlight
+syntax on
+" try to detect filetypes
+filetype on
+" enable loading indent file for filetype
+filetype plugin indent on    
+" code folding
+set foldmethod=indent
+set foldlevel=99
+" Serching
+nmap <leader>a <Esc>:Ack!
+" -----End Misc-----
+
+" code style
+autocmd FileType python setlocal et | setl sta | setl sw=4 | setl tw=76
+autocmd FileType html setlocal et | setl sta | setl sw=4
+autocmd FileType xml setlocal et | setl sta | setl sw=4
+autocmd FileType php setlocal et | setl sta | setl sw=4
+autocmd FileType c setlocal et | setl sta | setl sw=4
+
+" -----Plugin Config-----
+" Pyflakes
+let g:pyflakes_use_quickfix = 0
+
+" Supertab
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+
+" Pydoc Preview
+set completeopt=menuone,longest,preview
+
+" Latex-Suite
+" IMPORTANT: use helptags ~/.vim/bundle/latexsuite/doc/ to intial setup
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
+
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+set shellslash
+
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+
+" OPTIONAL: This enables automatic indentation as you type.
+filetype indent on
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+
+" -----End Plugin Config-----
