@@ -1,3 +1,4 @@
+set nocompatible
 " for the Pathgon to load correctly
 filetype off
 call pathogen#runtime_append_all_bundles()
@@ -5,11 +6,11 @@ call pathogen#helptags()
 
 " -----Key Mapping-----
 " TaskList
-map <leader>tak <Plug>TaskList
+map <leader>tk <Plug>TaskList
 " Gundo Key 
 nnoremap <leader>g :GundoToggle<CR>
 " Control Window Movement
-map <c-j> <c-w>j
+map <c-m> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
@@ -25,7 +26,7 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 " -----End Key Mapping-----
 
 " -----Misc-----
-set nocompatible
+set bs=2
 set enc=utf-8
 set fencs=utf-8,gbk,latin1
 set hlsearch
