@@ -6,7 +6,7 @@ call pathogen#helptags()
 
 " -----Key Mapping-----
 " TaskList
-map <leader>tk <Plug>TaskList
+map <leader>sk <Plug>TaskList
 " Gundo Key 
 nnoremap <leader>g :GundoToggle<CR>
 " Control Window Movement
