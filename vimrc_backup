@@ -23,10 +23,13 @@ map <leader>pw :Pydoc <c-r>=expand("<cword>")<CR><CR>
 map <leader>n :NERDTreeToggle<CR>
 " Taglist
 nnoremap <silent> <F8> :TlistToggle<CR>
+" \v brings up my .vimrc
+" \V reloads it -- making all changes active (have to save first)
+map <leader>v :sp ~/.vimrc<CR><C-W>_
+map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 " -----End Key Mapping-----
 
 " -----Misc-----
-set bs=2
 set enc=utf-8
 set fencs=utf-8,gbk,latin1
 set hlsearch
@@ -40,20 +43,38 @@ syntax on
 filetype on
 " enable loading indent file for filetype
 filetype plugin indent on    
-" code folding
-set foldmethod=indent
-set foldlevel=99
 " Serching
 nmap <leader>a <Esc>:Ack!
 " -----End Misc-----
 
-" code style
-autocmd FileType python setlocal et | setl sta | setl sw=4 | setl tw=76
-autocmd FileType html setlocal et | setl sta | setl sw=4
-autocmd FileType xml setlocal et | setl sta | setl sw=4
-autocmd FileType php setlocal et | setl sta | setl sw=4
-autocmd FileType c setlocal et | setl sta | setl sw=4
 
+" ----- Moving Around/Editing -----
+set cursorline " have a line indicate the cursor location
+set ruler " show the cursor position all the time
+set nostartofline " Avoid moving cursor to BOL when jumping around
+set virtualedit=block " Let cursor move past the last char in <C-v> mode
+set scrolloff=3 " Keep 3 context lines above and below the cursor
+set backspace=2 " Allow backspacing over autoindent, EOL, and BOL
+set showmatch " Briefly jump to a paren once it's balanced
+set nowrap " don't wrap text
+set linebreak " don't wrap textin the middle of a word
+set autoindent " always set autoindenting on
+set smartindent " use smart indent if there is no indent file
+set tabstop=4 " <tab> inserts 4 spaces
+set shiftwidth=4 " but an indent level is 2 spaces wide.
+set softtabstop=4 " <BS> over an autoindent deletes both spaces.
+set expandtab " Use spaces, not tabs, for autoindent/tab key.
+set shiftround " rounds indent to a multiple of shiftwidth
+set matchpairs+=<:> " show matching <> (html mainly) as well
+set foldmethod=indent " allow us to fold on indents
+set foldlevel=99 " don't fold by default
+
+" -----color scheme-----
+if has("gui_running")
+	colorscheme solarized
+    else
+	colorscheme torte
+endif
 " -----Plugin Config-----
 " Pyflakes
 let g:pyflakes_use_quickfix = 0
@@ -68,6 +89,8 @@ set completeopt=menuone,longest,preview
 " R configuration
 autocmd FileType r set fdm=indent
 au BufNewFile,BufRead *.R set ft=r
+let g:vimrplugin_underscore=0
+autocmd FileType r imap <c-_> <space><-<space>
 
 " Latex-Suite
 " IMPORTANT: use helptags ~/.vim/bundle/latexsuite/doc/ to intial setup
