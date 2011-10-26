@@ -3,7 +3,6 @@ set nocompatible
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-
 " -----Key Mapping-----
 " TaskList
 map <leader>sk <Plug>TaskList
@@ -18,9 +17,10 @@ map <c-h> <c-w>h
 map tn :tabnext<CR>
 map tp :tabprevious<CR>
 " Pydoc
+" map <leader>pw :Pydoc 
 map <leader>pw :Pydoc <c-r>=expand("<cword>")<CR><CR>
 " Nerdtree
-map <leader>n :NERDTreeToggle<CR>
+map <leader>nt :NERDTreeToggle<CR>
 " Taglist
 nnoremap <silent> <F8> :TlistToggle<CR>
 " \v brings up my .vimrc
@@ -35,7 +35,8 @@ set fencs=utf-8,gbk,latin1
 set hlsearch
 set wildmenu
 " set statusline=%=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-set statusline=%=[FORMAT=%{&ff}]\ [%Y]\ [ASCII=\%03.3b]\ [%04l,%04v][%p%%]\ [L%L]\ %F%m%r%h%w 
+set statusline=%=[FORMAT=%{&ff}]\ [%Y]\ [ASCII=\%03.3b]\ [%04l,%04v][%p%%]\ [L%L]\ %t%h%m%r
+" set statusline=%=[FORMAT=%{&ff}]\ [%Y]\ [ASCII=\%03.3b]\ [%04l,%04v][%p%%]\ [L%L]\ %F%m%r%h%w 
 set laststatus=2
 " syntax highlight
 syntax on
@@ -45,6 +46,8 @@ filetype on
 filetype plugin indent on    
 " Serching
 nmap <leader>a <Esc>:Ack!
+" Disable auto comment
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " -----End Misc-----
 
 
@@ -56,7 +59,8 @@ set virtualedit=block " Let cursor move past the last char in <C-v> mode
 set scrolloff=3 " Keep 3 context lines above and below the cursor
 set backspace=2 " Allow backspacing over autoindent, EOL, and BOL
 set showmatch " Briefly jump to a paren once it's balanced
-set nowrap " don't wrap text
+"set nowrap " don't wrap text
+set textwidth=76
 set linebreak " don't wrap textin the middle of a word
 set autoindent " always set autoindenting on
 set smartindent " use smart indent if there is no indent file
