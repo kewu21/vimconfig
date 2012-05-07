@@ -60,7 +60,7 @@ set scrolloff=3 " Keep 3 context lines above and below the cursor
 set backspace=2 " Allow backspacing over autoindent, EOL, and BOL
 set showmatch " Briefly jump to a paren once it's balanced
 "set nowrap " don't wrap text
-set textwidth=76
+set textwidth=72
 set linebreak " don't wrap textin the middle of a word
 set autoindent " always set autoindenting on
 set smartindent " use smart indent if there is no indent file
@@ -74,6 +74,7 @@ set foldmethod=indent " allow us to fold on indents
 set foldlevel=99 " don't fold by default
 
 " -----color scheme-----
+set t_Co=256
 if has("gui_running")
 	colorscheme solarized
     else
@@ -94,6 +95,9 @@ set completeopt=menuone,longest,preview
 autocmd FileType r set fdm=indent
 au BufNewFile,BufRead *.R set ft=r
 let g:vimrplugin_underscore=0
+let vimrplugin_tmux = 1
+let vimrplugin_r_path = "/opt/local/bin/"
+let vimrplugin_applescript = 0
 autocmd FileType r imap <c-_> <space><-<space>
 
 " Latex-Suite
