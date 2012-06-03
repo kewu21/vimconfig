@@ -1,11 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/wuke/.vim'
-let g:netrw_dirhist_2='/opt/local/var/macports/logs'
-let g:netrw_dirhist_3='/Users/kewu/Dropbox/UMich Grad/2011 Fall/SI 508/twiteseapi-read-only/assest'
-let g:netrw_dirhist_4='/Users/kewu/Dropbox/code_inter'
-let g:netrw_dirhist_5='/data/db'
-let g:netrw_dirhist_6='/Users/kewu/news-speak/chrome_ext'
-let g:netrw_dirhist_7='/Users/kewu/Dropbox/dk/hiv'
-let g:netrw_dirhist_8='/Users/kewu/Downloads/smallseg_0.6'
-let g:netrw_dirhist_9='/Users/kewu/Downloads/portTestAD'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/kewu/horizon/visualizations/templates'
+let g:netrw_dirhist_2='/home/kewu/horizon/commit-msg'

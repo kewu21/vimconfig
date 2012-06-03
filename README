@@ -8,6 +8,19 @@ set sw=2
 " all the figure labels. Very useful!
 set iskeyword+=:
 
+*****Command-t Install Guide*****
+cd ~/.vim/bundle/command-t
+    bundle install
+    rake make
+While the Vimball installation automatically generates the help tags, under
+Pathogen it is necessary to do so explicitly from inside Vim:
+    :call pathogen#helptags()
+
+*****Ack Install Guide*****
+Be sure to run :helptags ~/.vim/bundle/ack/doc
+on Ubuntu, remember to do 
+sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
+
 *****cvim install details*****
 1. Download the taglist.zip file and unzip the files to the $HOME/.vim or the
     $HOME/vimfiles or the $VIM/vimfiles directory. After this step, you should

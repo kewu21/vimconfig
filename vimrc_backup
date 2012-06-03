@@ -13,6 +13,7 @@ map <c-m> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+" Window resizing
 " Tab Remap
 map tn :tabnext<CR>
 map tp :tabprevious<CR>
@@ -21,12 +22,26 @@ map tp :tabprevious<CR>
 map <leader>pw :Pydoc <c-r>=expand("<cword>")<CR><CR>
 " Nerdtree
 map <leader>nt :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
 " Taglist
 nnoremap <silent> <F8> :TlistToggle<CR>
 " \v brings up my .vimrc
 " \V reloads it -- making all changes active (have to save first)
 map <leader>v :sp ~/.vimrc<CR><C-W>_
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+" PEP8
+let g:pep8_map='<leader>8'
+" Add the virtualenv's site-packages to vim path
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
 " -----End Key Mapping-----
 
 " -----Misc-----
@@ -87,6 +102,12 @@ let g:pyflakes_use_quickfix = 0
 " Supertab
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
+
+" MiniBufExplorer
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1 
 
 " Pydoc Preview
 set completeopt=menuone,longest,preview
