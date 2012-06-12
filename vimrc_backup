@@ -58,7 +58,7 @@ syntax on
 " try to detect filetypes
 filetype on
 " enable loading indent file for filetype
-filetype plugin indent on    
+"filetype plugin indent on    
 " Serching
 nmap <leader>a <Esc>:Ack!
 " Disable auto comment
@@ -75,15 +75,18 @@ set scrolloff=3 " Keep 3 context lines above and below the cursor
 set backspace=2 " Allow backspacing over autoindent, EOL, and BOL
 set showmatch " Briefly jump to a paren once it's balanced
 "set nowrap " don't wrap text
-set textwidth=72
+set textwidth=80
 set linebreak " don't wrap textin the middle of a word
 set autoindent " always set autoindenting on
 set smartindent " use smart indent if there is no indent file
 set tabstop=4 " <tab> inserts 4 spaces
-set shiftwidth=4 " but an indent level is 2 spaces wide.
+set shiftwidth=4  
 set softtabstop=4 " <BS> over an autoindent deletes both spaces.
 set expandtab " Use spaces, not tabs, for autoindent/tab key.
 set shiftround " rounds indent to a multiple of shiftwidth
+autocmd FileType python setl tabstop=4 shiftwidth=4 sts=4 "indentation for python file
+autocmd FileType html setl ts=2 sw=2 sts=2 "indentation for html file
+autocmd FileType js setl ts=2 sw=2 sts=2 "indentation for js file
 set matchpairs+=<:> " show matching <> (html mainly) as well
 set foldmethod=indent " allow us to fold on indents
 set foldlevel=99 " don't fold by default
@@ -135,8 +138,6 @@ set shellslash
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
 
-" OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
 
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
