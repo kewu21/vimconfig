@@ -79,6 +79,7 @@ set showmatch " Briefly jump to a paren once it's balanced
 "set nowrap " don't wrap text
 set textwidth=80
 set linebreak " don't wrap textin the middle of a word
+filetype plugin indent on    
 set autoindent " always set autoindenting on
 set smartindent " use smart indent if there is no indent file
 set tabstop=4 " <tab> inserts 4 spaces
