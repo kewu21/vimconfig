@@ -31,6 +31,8 @@ map <leader>v :sp ~/.vimrc<CR><C-W>_
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 " PEP8
 let g:pep8_map='<leader>8'
+" Serching
+nmap <leader>a <Esc>:Ack!
 " Add the virtualenv's site-packages to vim path
 py << EOF
 import os.path
@@ -57,10 +59,10 @@ set laststatus=2
 syntax on
 " try to detect filetypes
 filetype on
-" Serching
-nmap <leader>a <Esc>:Ack!
 " Disable auto comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" register clipboard
+set clipboard=unnamed
 " -----End Misc-----
 
 
