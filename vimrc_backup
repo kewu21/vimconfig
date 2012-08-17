@@ -88,6 +88,7 @@ set shiftround " rounds indent to a multiple of shiftwidth
 autocmd FileType python setl tabstop=4 shiftwidth=4 sts=4 "indentation for python file
 autocmd FileType html setl ts=2 sw=2 sts=2 "indentation for html file
 autocmd FileType js setl ts=2 sw=2 sts=2 "indentation for js file
+autocmd FileType less setl ts=2 sw=2 sts=2 "indentation for less file
 set matchpairs+=<:> " show matching <> (html mainly) as well
 set foldmethod=indent " allow us to fold on indents
 set foldlevel=99 " don't fold by default
